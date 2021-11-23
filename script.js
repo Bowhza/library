@@ -5,7 +5,6 @@ const bookPages = document.getElementById("book-pages")
 let isRead = document.getElementById("read");
 const addBookButton = document.getElementById("add-book");
 
-
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -41,8 +40,10 @@ function displayBook() {
         let bookCardTitle = document.createElement("div");
         let bookCardAuthor = document.createElement("div");
         let bookCardPages = document.createElement("div");
-        let bookCardRead = document.createElement("button");
+        let readButton = document.createElement("button");
         let removeBookButton = document.createElement("button");
+
+        let readStatus = myLibrary[bookCounter].read;
 
         bookCard.classList.add("book-card")
 
@@ -51,13 +52,25 @@ function displayBook() {
         bookCardPages.innerText = `Pages: ${myLibrary[bookCounter].pages}`;
         removeBookButton.innerText = "Remove Book"
 
-        if (myLibrary[bookCounter].read == true) {
-            bookCardRead.style.backgroundColor = "lightgreen";
-            bookCardRead.innerText = "Read";
+        if (readStatus == true) {
+            readButton.style.backgroundColor = "lightgreen";
+            readButton.innerText = "Read";
         } else {
-            bookCardRead.style.backgroundColor = "lightcoral";
-            bookCardRead.innerText = "Not Read";
+            readButton.style.backgroundColor = "lightcoral";
+            readButton.innerText = "Not Read";
         };
+
+        readButton.addEventListener("click", () => {
+            if (readStatus == true) {
+                readStatus = false;
+                readButton.innerText = "Not Read";
+                readButton.style.backgroundColor = "lightcoral";
+            } else if (readStatus == false) {
+                readStatus = true;
+                readButton.innerText = "Read";
+                readButton.style.backgroundColor = "lightgreen";
+            };
+        })
 
         removeBookButton.addEventListener("click", () => {
             bookContainer.removeChild(bookCard);
@@ -66,7 +79,7 @@ function displayBook() {
             console.log(myLibrary);
         });
 
-        bookCard.append(bookCardTitle, bookCardAuthor, bookCardPages, bookCardRead, removeBookButton);
+        bookCard.append(bookCardTitle, bookCardAuthor, bookCardPages, readButton, removeBookButton);
         bookContainer.appendChild(bookCard);
         
     };
