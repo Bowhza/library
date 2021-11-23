@@ -70,7 +70,7 @@ function displayBook() {
                 readButton.innerText = "Read";
                 readButton.style.backgroundColor = "lightgreen";
             };
-        })
+        });
 
         removeBookButton.addEventListener("click", () => {
             bookContainer.removeChild(bookCard);
@@ -88,4 +88,8 @@ function displayBook() {
 addBookButton.addEventListener("click", () => {
     addBookToLibrary();
     displayBook();
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    bookPages.value = "";
+    isRead.checked = false;
 });

@@ -13,7 +13,6 @@ header {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
-    background-color: #1d3557;
     padding: 1rem 2rem;
     border-bottom: 2px solid #f1faee;
 }
@@ -25,7 +24,12 @@ header h1, h2 {
 }
 
 header h2 {
-text-align: center;
+    text-align: center;
+}
+
+header, .side-bar {
+    color: #f1faee;
+    background-color: #1d3557;
 }
 
 .main-container {
@@ -38,8 +42,6 @@ text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #f1faee;
-    background-color: #1d3557;
     gap: 15px;
     padding: 20px 30px;
     border-right: 2px solid #f1faee;
@@ -47,10 +49,6 @@ text-align: center;
 
 .side-bar input {
     height: 30px;
-}
-
-.side-bar h2 {
-    text-shadow: 3px 3px 10px black;
 }
 
 input[type=checkbox] {
@@ -87,7 +85,8 @@ input[type=checkbox] {
 
 .book-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
     margin: 50px;
     gap: 30px;
     flex-wrap: wrap;
@@ -107,7 +106,6 @@ input[type=checkbox] {
     font-size: auto;
     box-shadow: 2px 2px 15px black;
     word-wrap: break-word;
-    height: 250px;
 }
 
 .book-card * {
