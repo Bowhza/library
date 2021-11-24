@@ -122,5 +122,6 @@ input[type=checkbox] {
 
 .card-title {
     font-weight: bold;
-    font-size: 2vmax;
+    font-size: 30px;
+    word-wrap: break-word;
 }
