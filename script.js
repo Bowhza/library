@@ -46,6 +46,7 @@ function displayBook() {
         let readStatus = myLibrary[bookCounter].read;
 
         bookCard.classList.add("book-card")
+        bookCardTitle.classList.add("card-title");
 
         bookCardTitle.innerText = `Title: ${myLibrary[bookCounter].title}`; 
         bookCardAuthor.innerText = `Author: ${myLibrary[bookCounter].author}`;
@@ -86,10 +87,20 @@ function displayBook() {
 };
 
 addBookButton.addEventListener("click", () => {
-    addBookToLibrary();
-    displayBook();
-    bookTitle.value = "";
-    bookAuthor.value = "";
-    bookPages.value = "";
-    isRead.checked = false;
+    if (bookTitle.value.length == 0) {
+        alert("Please enter a value for the title");
+    } else if (bookAuthor.value.length == 0) {
+        alert("Please enter a value for the author");
+    } else if (bookPages.value.length == 0 || isNaN(bookPages.value)) {
+        alert("Please enter a numeric value for the pages");
+        bookPages.value = "";
+    } else {
+        addBookToLibrary();
+        displayBook();
+        bookTitle.value = "";
+        bookAuthor.value = "";
+        bookPages.value = "";
+        isRead.checked = false;
+    };
 });
+
