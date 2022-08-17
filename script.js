@@ -4,6 +4,8 @@ const bookAuthor = document.getElementById("book-author");
 const bookPages = document.getElementById("book-pages")
 let isRead = document.getElementById("read");
 const addBookButton = document.getElementById("add-book");
+const newBookButton = document.getElementById("new-book");
+const inputBox = document.querySelector(".input-box");
 
 let myLibrary = [];
 
@@ -86,6 +88,10 @@ function displayBook() {
     };
 };
 
+newBookButton.addEventListener("click", () => {
+    inputBox.classList.toggle("hidden");
+});
+
 addBookButton.addEventListener("click", () => {
     if (bookTitle.value.length == 0) {
         alert("Please enter a value for the title");
@@ -101,6 +107,7 @@ addBookButton.addEventListener("click", () => {
         bookAuthor.value = "";
         bookPages.value = "";
         isRead.checked = false;
+        inputBox.classList.toggle("hidden");
     };
 });
 
