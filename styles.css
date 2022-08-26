@@ -7,12 +7,14 @@
 html, body {
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
   
 body {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 30s ease infinite;
+  position: relative;
 }
   
 @keyframes gradient {
@@ -67,6 +69,7 @@ body {
     align-items: center;
     border-bottom: 2px solid white;
     color: white;
+    height: 40px;
 }
 
 .header h1 {
@@ -115,11 +118,9 @@ body {
 
 .book-container {
     display: grid;
-    margin: 25px;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: calc(100vh/3);
+    padding: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    flex-wrap: wrap;
 }
 
 .book-card {
@@ -130,6 +131,8 @@ body {
     border-radius: 20px;
     border: 2px solid white;
     font-size: 20px;
+    height: 250px;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -142,3 +145,7 @@ body {
     width: 100%;
 }
 
+.model-background {
+    background-color: rgba(63, 63, 63, 0.3);
+    position: absolute;
+}

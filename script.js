@@ -9,15 +9,18 @@ const inputBox = document.querySelector(".input-box");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    };
+
 };
 
 function addBookToLibrary() {
-    let newBook = Object.create(Book);
+    let newBook = new book();
     newBook.title = bookTitle.value;
     newBook.author = bookAuthor.value;
     newBook.pages = bookPages.value;
@@ -39,9 +42,9 @@ let bookCounter = 0
 function displayBook() {
     for (bookCounter; bookCounter < myLibrary.length; bookCounter ++) {
         let bookCard = document.createElement("div");
-        let bookCardTitle = document.createElement("div");
-        let bookCardAuthor = document.createElement("div");
-        let bookCardPages = document.createElement("div");
+        let bookCardTitle = document.createElement("h3");
+        let bookCardAuthor = document.createElement("p");
+        let bookCardPages = document.createElement("p");
         let readButton = document.createElement("button");
         let removeBookButton = document.createElement("button");
 
